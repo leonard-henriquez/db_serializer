@@ -11,9 +11,11 @@ module ActiveGeometry
     DEFAULT_BOUNDING = 0
 
     included do
+      attribute :geo_json, :string
+
       # filters only zones in between the min_lng, min_lat, max_lng, max_lat
       scope :in_bounds, ->(params) do
-        bounding_box = Utilities::Geo.bounding_box(params)
+        bounding_box = GeoUtilities.bounding_box(params)
         return all unless bounding_box
 
         bounding_box_geometry = bounding_box.to_geometry
@@ -23,8 +25,8 @@ module ActiveGeometry
 
       # adds a geo_json field
       scope :add_geo_json_field, ->(columns = []) do
-        geo_json_field = Utilities::Geo::SQL.geo_json_field(columns)
-        select(geo_json_field)
+        geo_json_field = GeoUtilities::SQL.geo_json_field(columns)
+        select_append(geo_json_field)
       end
 
       # returns a string containing a FeatureCollection
@@ -32,7 +34,7 @@ module ActiveGeometry
       # it is already serialized so there is no need to apply .to_json
       def self.feature_collection(columns = [])
         features = add_geo_json_field(columns)
-        query = Utilities::Geo::SQL.feature_collection(features)
+        query = GeoUtilities::SQL.feature_collection(features)
         Utilities::SQL.pick(query, 'json', '{}')
       end
     end
