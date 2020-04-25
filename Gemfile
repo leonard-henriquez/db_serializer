@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in activegeometry.gemspec
+# Specify your gem's dependencies in activegeo.gemspec
 gemspec
 
 gem 'minitest', '~> 5.0'

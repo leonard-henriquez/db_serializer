@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ActiveGeometry
+module ActiveGeo
   module QueryMethods
     extend ActiveSupport::Concern
 

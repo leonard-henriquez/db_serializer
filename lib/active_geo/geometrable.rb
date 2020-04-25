@@ -3,7 +3,7 @@
 # concern for spatial methods
 # the extended class must be an ActiveRecord::Base
 # it must also have a geometry field
-module ActiveGeometry
+module ActiveGeo
   module Geometrable
     extend ActiveSupport::Concern
 

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ActiveGeometry
+module ActiveGeo
   # Module defining miscellaneous tools
   module Utilities
     # SQL utilies

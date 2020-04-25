@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    activegeometry (0.1.0)
+    activegeo (0.1.0)
       activerecord
       activerecord-postgis-adapter
       pg
@@ -65,7 +65,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activegeometry!
+  activegeo!
   minitest (~> 5.0)
   rake (~> 12.0)
   rubocop
