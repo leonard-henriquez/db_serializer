@@ -1,0 +1,17 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+    - bin/*
+    - db/migrate/*.rb
+    - db/schema.rb
+
+Layout/LineLength:
+  Max: 100
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+Style/ClassAndModuleChildren:
+  Enabled: false
