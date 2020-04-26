@@ -34,7 +34,7 @@ module ActiveGeo
         def geo_json_field(columns, opts = {})
           opts = {
             geometry_column: :geometry,
-            field_name: :geo_json
+            field_name: :geo_json_raw
           }.merge(opts)
 
           filtered_columns = columns.reject { |column| column.to_s == opts[:geometry_column].to_s }
@@ -64,7 +64,7 @@ module ActiveGeo
         #     features = Model.select(geo_json_field([:id]))
         #     query = feature_collection(features)
         #     ActiveRecord::Base.connection.exec_query(query)
-        def feature_collection(features, field_name = 'geo_json')
+        def feature_collection(features, field_name = 'geo_json_raw')
           inner_query = features.is_a?(String) ? features : features.to_sql
 
           <<-SQL

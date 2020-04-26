@@ -14,5 +14,5 @@ module ActiveGeo
 
   ActiveRecord::Relation.include ActiveGeo::QueryMethods
   ActiveRecord::QueryMethods.include ActiveGeo::QueryMethods
-  ActiveRecord::Base.include ActiveGeo::Geometrable
+  # ActiveRecord::Base.include ActiveGeo::Geometrable
 end
