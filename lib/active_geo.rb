@@ -8,11 +8,11 @@ module ActiveGeo
   extend ActiveSupport::Autoload
 
   autoload :QueryMethods
-  autoload :Geometrable
-  autoload :Utilities
   autoload :GeoUtilities
 
-  ActiveRecord::Relation.include ActiveGeo::QueryMethods
-  ActiveRecord::QueryMethods.include ActiveGeo::QueryMethods
-  # ActiveRecord::Base.include ActiveGeo::Geometrable
+  module Serializers
+    extend ActiveSupport::Autoload
+
+    autoload :GeoJSON
+  end
 end
