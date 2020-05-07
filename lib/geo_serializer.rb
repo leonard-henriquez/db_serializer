@@ -8,5 +8,5 @@ module GeoSerializer
 
   autoload :Version
   autoload :JSON
-  autoload :GeoUtilities
+  autoload :Utilities
 end

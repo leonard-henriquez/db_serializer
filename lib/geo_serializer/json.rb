@@ -27,7 +27,7 @@ module GeoSerializer
           field_name: :geojson
         }
 
-        attribute = GeoSerializer::GeoUtilities::SQL.geojson_attribute(columns, params)
+        attribute = GeoSerializer::Utilities::SQL.geojson_attribute(columns, params)
 
         _select!(attribute)
       end
@@ -68,7 +68,7 @@ module GeoSerializer
       # @return [String] JSON serialized FeatureCollection
       def to_geojson(columns = nil)
         features = set_geojson_attribute(columns)
-        query = GeoSerializer::GeoUtilities::SQL.feature_collection(features)
+        query = GeoSerializer::Utilities::SQL.feature_collection(features)
         ActiveRecord::Base.connection.query_value(query)
       end
     end

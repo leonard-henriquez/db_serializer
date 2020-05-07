@@ -3,7 +3,7 @@
 module GeoSerializer
   ##
   # Module defining geographic tools
-  module GeoUtilities
+  module Utilities
     ##
     # SQL utilities for spatial queries
     module SQL
@@ -18,7 +18,7 @@ module GeoSerializer
         # <code>
         # {"type": "FeatureCollection", "features": [{"id": 1, "type":
         # "Feature", "geometry": {"type": "MultiLineString", "coordinates": [[[x,y]]]},
-        # "properties": {"id": 555, "url": "paris-75000"}}]}
+        # "properties": {"id": 1, "name": "Paris"}}]}
         # </code>
         #
         # To learn more about FeatureCollections see the specifications:
@@ -64,14 +64,14 @@ module GeoSerializer
         # <code>
         # {"id": 1, "type": "Feature", "geometry":
         # {"type": "MultiLineString", "coordinates": [[[x,y]]]},
-        # "properties": {"id": 555, "url": "paris-75000"}}
+        # "properties": {"id": 1, "name": "Paris"}}
         # </code>
         #
         # To learn more about GeoJSON features see the specifications:
         # http://wiki.geojson.org/GeoJSON_draft_version_6#Feature
         #
         # @example with SQL:
-        #   geojson = GeoSerializer::GeoUtilities::SQL.geojson_attribute([:id])
+        #   geojson = GeoSerializer::Utilities::SQL.geojson_attribute([:id])
         #   records = ActiveRecord::Base.connection.exec_query(
         #     "SELECT id, geometry, #{geojson} FROM table"
         #   )
@@ -81,7 +81,7 @@ module GeoSerializer
         #   puts record['geojson']
         #
         # @example with an +ActiveRecord::Base+
-        #   geojson = GeoSerializer::GeoUtilities::SQL.geojson_attribute([:id])
+        #   geojson = GeoSerializer::Utilities::SQL.geojson_attribute([:id])
         #   records = Model.select(geojson)
         #   record = records.first
         #
