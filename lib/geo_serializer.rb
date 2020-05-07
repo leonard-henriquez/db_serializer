@@ -2,16 +2,11 @@
 
 require 'active_support'
 require 'active_record'
-require 'active_geo/version'
 
-module ActiveGeo
+module GeoSerializer
   extend ActiveSupport::Autoload
 
+  autoload :Version
+  autoload :JSON
   autoload :GeoUtilities
-
-  module Serializers
-    extend ActiveSupport::Autoload
-
-    autoload :GeoJSON
-  end
 end

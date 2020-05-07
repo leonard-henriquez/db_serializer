@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    activegeo (0.1.0)
+    geo_serializer (0.1.0)
       activerecord
       activerecord-postgis-adapter
       pg
@@ -68,7 +68,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activegeo!
+  geo_serializer!
   minitest (~> 5.0)
   rake (~> 12.0)
   rubocop

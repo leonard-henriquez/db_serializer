@@ -4,16 +4,13 @@
 # Module to add spatial methods to ActiveRecord models.
 # The extended class must be an ActiveRecord::Base.
 # It must also have a geometry field.
-module ActiveGeo::Serializers
-  module GeoJSON
+module GeoSerializer
+  module JSON
     extend ActiveSupport::Concern
 
-    DEFAULT_BOUNDING = 0
-
     included do
-      @geometrable_options = {
-        field: :geometry,
-        srid: 4326
+      @geo_serializer_options = {
+        field: :geometry
       }
 
       private
@@ -26,11 +23,11 @@ module ActiveGeo::Serializers
       scope :set_geojson_attribute, ->(columns = nil) do
         columns = select_values if columns.nil?
         params = {
-          geometry_column: geometrable_options[:field],
+          geometry_column: geo_serializer_options[:field],
           field_name: :geojson
         }
 
-        attribute = ActiveGeo::GeoUtilities::SQL.geojson_attribute(columns, params)
+        attribute = GeoSerializer::GeoUtilities::SQL.geojson_attribute(columns, params)
 
         _select!(attribute)
       end
@@ -40,24 +37,21 @@ module ActiveGeo::Serializers
       ##
       # Allows to set the options for this gem
       # @param field [Symbol] name of the attribute containing geometry
-      # @param options [Hash] other options such as srid
       # @return [Hash]
-      def geometry_on(field = :geometry, options = {})
-        srid = attribute_types[field.to_s].spatial_factory.srid
-        @geometrable_options = options
-        @geometrable_options[:srid] ||= srid
-        @geometrable_options[:field] = field.to_sym
-        geometrable_options
+      def geo_serializer(field = :geometry)
+        @geo_serializer_options = {}
+        @geo_serializer_options[:field] = field.to_sym
+        geo_serializer_options
       end
 
       ##
       # Allows to get the options for this gem
-      # @return [Hash] contains keys :field, :srid
-      def geometrable_options
-        if defined?(@geometrable_options)
-          @geometrable_options
-        elsif superclass.respond_to?(:geometrable_options)
-          superclass.geometrable_options || {}
+      # @return [Hash] contains keys :field
+      def geo_serializer_options
+        if defined?(@geo_serializer_options)
+          @geo_serializer_options
+        elsif superclass.respond_to?(:geo_serializer_options)
+          superclass.geo_serializer_options || {}
         else
           {}
         end
@@ -74,7 +68,7 @@ module ActiveGeo::Serializers
       # @return [String] JSON serialized FeatureCollection
       def to_geojson(columns = nil)
         features = set_geojson_attribute(columns)
-        query = ActiveGeo::GeoUtilities::SQL.feature_collection(features)
+        query = GeoSerializer::GeoUtilities::SQL.feature_collection(features)
         ActiveRecord::Base.connection.query_value(query)
       end
     end

@@ -2,8 +2,8 @@
 
 require 'test_helper'
 
-class ActiveGeoTest < Minitest::Test
+class GeoSerializerTest < Minitest::Test
   def test_that_it_has_a_version_number
-    refute_nil ::ActiveGeo::VERSION
+    refute_nil ::GeoSerializer::VERSION
   end
 end

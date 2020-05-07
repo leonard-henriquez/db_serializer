@@ -12,12 +12,12 @@ end
 
 # RDoc::Task.new do |doc|
 #   doc.main = 'README.md'
-#   doc.title = "ActiveGeo #{ActiveGeo::VERSION} Documentation"
+#   doc.title = "GeoSerializer #{GeoSerializer::VERSION} Documentation"
 #   doc.options << '--format=sdoc'
 #   doc.template = 'rails'
 #   doc.rdoc_dir = 'doc'
 #   doc.rdoc_files.include('README.md', 'lib/**/*.rb')
-#   doc.rdoc_files.exclude('lib/active_geo.rb', 'lib/active_geo/version.rb')
+#   doc.rdoc_files.exclude('lib/geo_serializer.rb', 'lib/geo_serializer/version.rb')
 # end
 
 YARD::Rake::YardocTask.new do |t|
