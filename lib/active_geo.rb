@@ -7,7 +7,6 @@ require 'active_geo/version'
 module ActiveGeo
   extend ActiveSupport::Autoload
 
-  autoload :QueryMethods
   autoload :GeoUtilities
 
   module Serializers
