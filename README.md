@@ -1,8 +1,7 @@
 # Active Geometry
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/geo_serializer`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem provide a simple way to serialize Active Record models to GeoJSON objects.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -14,15 +13,43 @@ gem 'geo_serializer'
 
 And then execute:
 
-    $ bundle install
+```bash
+$ bundle install
+```
 
-Or install it yourself as:
+Then you need to include the concern `GeoSerializer::JSON` to your model:
 
-    $ gem install geo_serializer
+```ruby
+# In this example the Cities model has:
+# - an attribute name of type string
+# - an attribute boundaries of type geometry
+class Cities < ActiveRecord::Base
+  # Include this concern
+  include GeoSerializer::JSON
+
+  # Specify which column contains the geometry
+  # If you don't specify it, by default it will be :geometry
+  geo_serializer :boundaries
+end
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+puts Cities.all.to_geojson([:id, :name])
+
+# If you had such a model, it would output something like this:
+# {
+#   "type": "FeatureCollection", "features": [{
+#     "id": 1, "type": "Feature", "geometry": {
+#       "type": "MultiLineString", "coordinates": [[[x1,y1],[x2,y2]]]
+#     },
+#     "properties": {"id": 1, "name": "Paris"}
+#   }]
+# }
+```
+Note: the output has been pretty printed for readability but please keep in mind that `to_geojson` returns a *string* containing a valid serialized JSON.
+It means that you do not need to use `to_json` on it and that it can be parse with `JSON.parse`.
 
 ## Development
 
