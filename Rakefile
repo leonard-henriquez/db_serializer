@@ -10,16 +10,6 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList['test/**/*_test.rb']
 end
 
-# RDoc::Task.new do |doc|
-#   doc.main = 'README.md'
-#   doc.title = "GeoSerializer #{GeoSerializer::VERSION} Documentation"
-#   doc.options << '--format=sdoc'
-#   doc.template = 'rails'
-#   doc.rdoc_dir = 'doc'
-#   doc.rdoc_files.include('README.md', 'lib/**/*.rb')
-#   doc.rdoc_files.exclude('lib/geo_serializer.rb', 'lib/geo_serializer/version.rb')
-# end
-
 YARD::Rake::YardocTask.new do |t|
   YARD::Config.load_plugin('activesupport-concern')
   t.files = ['lib/**/*.rb']

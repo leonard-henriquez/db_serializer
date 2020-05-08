@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 ##
-# Module to add spatial methods to ActiveRecord models.
+# Module that contains spatial serializers for ActiveRecord models.
 # The extended class must be an ActiveRecord::Base.
 # It must also have a geometry field.
 module GeoSerializer
+  # JSON Serializer
   module JSON
     extend ActiveSupport::Concern
 
