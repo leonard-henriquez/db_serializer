@@ -15,3 +15,6 @@ Style/Lambda:
 
 Style/ClassAndModuleChildren:
   Enabled: false
+
+Rails/ApplicationRecord:
+  Enabled: false
