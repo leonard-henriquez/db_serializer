@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-##
-# Module that contains spatial serializers for ActiveRecord models.
-# The extended class must be an ActiveRecord::Base.
-# It must also have a geometry field.
 module PgSerializer
   # JSON Serializer
   module GeoJSON
@@ -18,7 +14,6 @@ module PgSerializer
 
       ##
       # Adds a geojson attribute to the current ActiveRecord::Relation
-      # @private
       # @param columns [Array<Symbol, String>] list of the columns to include in the GeoJSON
       # @return [ActiveRecord::Relation] relation with a new attribute named geojson
       scope :set_geojson_attribute, ->(columns = nil) do
