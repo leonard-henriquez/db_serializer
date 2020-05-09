@@ -4,8 +4,6 @@ PATH
     pg_serializer (0.1.0)
       activerecord
       activerecord-postgis-adapter
-      pg
-      rgeo
 
 GEM
   remote: https://rubygems.org/
@@ -33,7 +31,6 @@ GEM
     parallel (1.19.1)
     parser (2.7.1.1)
       ast (~> 2.4.0)
-    pg (1.2.3)
     rack (2.2.2)
     rainbow (3.0.0)
     rake (12.3.2)
@@ -68,8 +65,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  geo_serializer!
   minitest (~> 5.0)
+  pg_serializer!
   rake (~> 12.0)
   rubocop
   rubocop-rails
