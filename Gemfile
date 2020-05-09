@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in geo_serializer.gemspec
+# Specify your gem's dependencies in pg_serializer.gemspec
 gemspec
 
 gem 'minitest', '~> 5.0'

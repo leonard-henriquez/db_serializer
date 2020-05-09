@@ -2,8 +2,8 @@
 
 require 'test_helper'
 
-class GeoSerializerTest < Minitest::Test
+class PgSerializerTest < ActiveSupport::TestCase
   def test_that_it_has_a_version_number
-    refute_nil ::GeoSerializer::VERSION
+    assert_not_nil PgSerializer::VERSION
   end
 end

@@ -3,10 +3,10 @@
 require 'active_support'
 require 'active_record'
 
-module GeoSerializer
+module PgSerializer
   extend ActiveSupport::Autoload
 
   autoload :Version
-  autoload :JSON
+  autoload :GeoJSON
   autoload :Utilities
 end

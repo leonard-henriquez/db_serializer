@@ -1,14 +1,14 @@
-# Active Geometry
+# PG Serializer
 
-This gem provide a simple way to serialize Active Record models to GeoJSON objects.
-
+This gem provide a blazing fast way to serialize Active Record models.
+At the moment only a GeoJSON serializer is implemented
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'geo_serializer'
+gem 'pg_serializer'
 ```
 
 And then execute:
@@ -17,26 +17,26 @@ And then execute:
 $ bundle install
 ```
 
-Then you need to include the concern `GeoSerializer::JSON` to your model:
+Then you need to include the concern `PgSerializer::GeoJSON` to your model:
 
 ```ruby
-# In this example the Cities model has:
+# In this example the City model has:
 # - an attribute name of type string
 # - an attribute boundaries of type geometry
-class Cities < ActiveRecord::Base
+class City < ActiveRecord::Base
   # Include this concern
-  include GeoSerializer::JSON
+  include PgSerializer::JSON
 
   # Specify which column contains the geometry
   # If you don't specify it, by default it will be :geometry
-  geo_serializer :boundaries
+  pg_serializer :boundaries
 end
 ```
 
 ## Usage
 
 ```ruby
-puts Cities.all.to_geojson([:id, :name])
+puts City.all.to_geojson([:id, :name])
 
 # If you had such a model, it would output something like this:
 # {
@@ -59,7 +59,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/leonard-henriquez/geo_serializer. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/leonard-henriquez/geo_serializer/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/leonard-henriquez/pg_serializer. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/leonard-henriquez/pg_serializer/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
@@ -68,4 +68,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the geo_serializer project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/leonard-henriquez/geo_serializer/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the pg_serializer project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/leonard-henriquez/pg_serializer/blob/master/CODE_OF_CONDUCT.md).

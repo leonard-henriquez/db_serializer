@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    geo_serializer (0.1.0)
+    pg_serializer (0.1.0)
       activerecord
       activerecord-postgis-adapter
       pg
