@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module PgSerializer
+module DbSerializer
   ##
   # Module defining geographic tools
   module Utilities
@@ -71,7 +71,7 @@ module PgSerializer
         # http://wiki.geojson.org/GeoJSON_draft_version_6#Feature
         #
         # @example with SQL:
-        #   geojson = PgSerializer::Utilities::SQL.geojson_attribute([:id])
+        #   geojson = DbSerializer::Utilities::SQL.geojson_attribute([:id])
         #   records = ActiveRecord::Base.connection.exec_query(
         #     "SELECT id, geometry, #{geojson} FROM table"
         #   )
@@ -81,7 +81,7 @@ module PgSerializer
         #   puts record['geojson']
         #
         # @example with an +ActiveRecord::Base+
-        #   geojson = PgSerializer::Utilities::SQL.geojson_attribute([:id])
+        #   geojson = DbSerializer::Utilities::SQL.geojson_attribute([:id])
         #   records = Model.select(geojson)
         #   record = records.first
         #

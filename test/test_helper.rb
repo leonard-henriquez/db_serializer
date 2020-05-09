@@ -3,13 +3,13 @@
 require 'simplecov'
 SimpleCov.start
 
-require 'pg_serializer'
+require 'db_serializer'
 require 'minitest/autorun'
 
 # Connect database
 ActiveRecord::Base.establish_connection(
   adapter: 'postgis',
-  database: 'pg_serializer_test'
+  database: 'db_serializer_test'
 )
 
 # Reset schema
@@ -24,9 +24,9 @@ end
 
 # Create dummy model
 class City < ActiveRecord::Base
-  include PgSerializer::GeoJSON
+  include DbSerializer::GeoJSON
 
-  pg_serializer :geometry
+  db_serializer :geometry
 end
 
 # Seed

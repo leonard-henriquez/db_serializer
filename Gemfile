@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in pg_serializer.gemspec
+# Specify your gem's dependencies in db_serializer.gemspec
 gemspec
 
 # test

@@ -58,7 +58,7 @@
       </div>
 
       <div id="content"><div id='filecontents'>
-<h1 id="label-PG+Serializer">PG Serializer</h1>
+<h1 id="label-Db+Serializer">Db Serializer</h1>
 
 <p>This gem provide a blazing fast way to serialize Active Record models. At the moment only a GeoJSON serializer is implemented</p>
 
@@ -66,7 +66,7 @@
 
 <p>Add this line to your application&#39;s Gemfile:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pg_serializer</span><span class='tstring_end'>&#39;</span></span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>db_serializer</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
 
 <p>And then execute:</p>
@@ -74,18 +74,18 @@
 <pre class="code ruby"><code class="ruby">$ bundle install
 </code></pre>
 
-<p>Then you need to include the concern <code>PgSerializer::GeoJSON</code> to your model:</p>
+<p>Then you need to include the concern <code>DbSerializer::GeoJSON</code> to your model:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='comment'># In this example the City model has:
 </span><span class='comment'># - an attribute name of type string
 </span><span class='comment'># - an attribute boundaries of type geometry
 </span><span class='kw'>class</span> <span class='const'>City</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
   <span class='comment'># Include this concern
-</span>  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="PgSerializer.html" title="PgSerializer (module)">PgSerializer</a></span></span><span class='op'>::</span><span class='const'>JSON</span>
+</span>  <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="DbSerializer.html" title="DbSerializer (module)">DbSerializer</a></span></span><span class='op'>::</span><span class='const'>JSON</span>
 
   <span class='comment'># Specify which column contains the geometry
 </span>  <span class='comment'># If you don&#39;t specify it, by default it will be :geometry
-</span>  <span class='id identifier rubyid_pg_serializer'>pg_serializer</span> <span class='symbol'>:boundaries</span>
+</span>  <span class='id identifier rubyid_db_serializer'>db_serializer</span> <span class='symbol'>:boundaries</span>
 <span class='kw'>end</span>
 </code></pre>
 
@@ -114,7 +114,7 @@
 
 <h2 id="label-Contributing">Contributing</h2>
 
-<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/leonard-henriquez/pg_serializer">github.com/leonard-henriquez/pg_serializer</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="https://github.com/leonard-henriquez/pg_serializer/blob/master/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
+<p>Bug reports and pull requests are welcome on GitHub at <a href="https://github.com/leonard-henriquez/db_serializer">github.com/leonard-henriquez/db_serializer</a>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="https://github.com/leonard-henriquez/db_serializer/blob/master/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
 
 <h2 id="label-License">License</h2>
 
@@ -122,11 +122,11 @@
 
 <h2 id="label-Code+of+Conduct">Code of Conduct</h2>
 
-<p>Everyone interacting in the pg_serializer project&#39;s codebases, issue trackers, chat rooms and mailing lists is expected to follow the <a href="https://github.com/leonard-henriquez/pg_serializer/blob/master/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
+<p>Everyone interacting in the db_serializer project&#39;s codebases, issue trackers, chat rooms and mailing lists is expected to follow the <a href="https://github.com/leonard-henriquez/db_serializer/blob/master/CODE_OF_CONDUCT.md">code of conduct</a>.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Sat May  9 18:14:20 2020 by
+  Generated on Sat May  9 19:16:39 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.7.0).
 </div>

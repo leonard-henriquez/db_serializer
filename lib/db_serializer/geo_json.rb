@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-module PgSerializer
+module DbSerializer
   # JSON Serializer
   module GeoJSON
     extend ActiveSupport::Concern
 
     included do
-      @pg_serializer_options = {
+      @db_serializer_options = {
         field: :geometry
       }
 
@@ -19,11 +19,11 @@ module PgSerializer
       scope :set_geojson_attribute, ->(columns = nil) do
         columns = select_values if columns.nil?
         params = {
-          geometry_column: pg_serializer_options[:field],
+          geometry_column: db_serializer_options[:field],
           field_name: :geojson
         }
 
-        attribute = PgSerializer::Utilities::SQL.geojson_attribute(columns, params)
+        attribute = DbSerializer::Utilities::SQL.geojson_attribute(columns, params)
 
         _select!(attribute)
       end
@@ -34,20 +34,20 @@ module PgSerializer
       # Allows to set the options for this gem
       # @param field [Symbol] name of the attribute containing geometry
       # @return [Hash]
-      def pg_serializer(field = :geometry)
-        @pg_serializer_options = {}
-        @pg_serializer_options[:field] = field.to_sym
-        pg_serializer_options
+      def db_serializer(field = :geometry)
+        @db_serializer_options = {}
+        @db_serializer_options[:field] = field.to_sym
+        db_serializer_options
       end
 
       ##
       # Allows to get the options for this gem
       # @return [Hash] contains keys :field
-      def pg_serializer_options
-        if defined?(@pg_serializer_options)
-          @pg_serializer_options
-        elsif superclass.respond_to?(:pg_serializer_options)
-          superclass.pg_serializer_options || {}
+      def db_serializer_options
+        if defined?(@db_serializer_options)
+          @db_serializer_options
+        elsif superclass.respond_to?(:db_serializer_options)
+          superclass.db_serializer_options || {}
         else
           {}
         end
@@ -64,7 +64,7 @@ module PgSerializer
       # @return [String] JSON serialized FeatureCollection
       def to_geojson(columns = nil)
         features = set_geojson_attribute(columns)
-        query = PgSerializer::Utilities::SQL.feature_collection(features)
+        query = DbSerializer::Utilities::SQL.feature_collection(features)
         ActiveRecord::Base.connection.query_value(query)
       end
     end

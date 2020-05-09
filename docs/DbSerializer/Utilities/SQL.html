@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Module: PgSerializer::Utilities::SQL
+  Module: DbSerializer::Utilities::SQL
   
     &mdash; Documentation by YARD 0.9.25
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../../css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "PgSerializer::Utilities::SQL";
+  pathId = "DbSerializer::Utilities::SQL";
   relpath = '../../';
 </script>
 
@@ -37,7 +37,7 @@
         <div id="menu">
   
     <a href="../../_index.html">Index (S)</a> &raquo;
-    <span class='title'><span class='object_link'><a href="../../PgSerializer.html" title="PgSerializer (module)">PgSerializer</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Utilities.html" title="PgSerializer::Utilities (module)">Utilities</a></span></span>
+    <span class='title'><span class='object_link'><a href="../../DbSerializer.html" title="DbSerializer (module)">DbSerializer</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Utilities.html" title="DbSerializer::Utilities (module)">Utilities</a></span></span>
      &raquo; 
     <span class="title">SQL</span>
   
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Module: PgSerializer::Utilities::SQL
+      <div id="content"><h1>Module: DbSerializer::Utilities::SQL
   
   
   
@@ -78,7 +78,7 @@
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/pg_serializer/utilities.rb</dd>
+    <dd>lib/db_serializer/utilities.rb</dd>
   </dl>
   
 </div>
@@ -315,7 +315,7 @@
 55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pg_serializer/utilities.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/db_serializer/utilities.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_feature_collection'>feature_collection</span><span class='lparen'>(</span><span class='id identifier rubyid_features'>features</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span>
@@ -372,7 +372,7 @@
 <p>with SQL:</p>
 </div></p>
       
-      <pre class="example code"><code><span class='id identifier rubyid_geojson'>geojson</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../PgSerializer.html" title="PgSerializer (module)">PgSerializer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Utilities.html" title="PgSerializer::Utilities (module)">Utilities</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="PgSerializer::Utilities::SQL (module)">SQL</a></span></span><span class='period'>.</span><span class='id identifier rubyid_geojson_attribute'>geojson_attribute</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <pre class="example code"><code><span class='id identifier rubyid_geojson'>geojson</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../DbSerializer.html" title="DbSerializer (module)">DbSerializer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Utilities.html" title="DbSerializer::Utilities (module)">Utilities</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="DbSerializer::Utilities::SQL (module)">SQL</a></span></span><span class='period'>.</span><span class='id identifier rubyid_geojson_attribute'>geojson_attribute</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_records'>records</span> <span class='op'>=</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_connection'>connection</span><span class='period'>.</span><span class='id identifier rubyid_exec_query'>exec_query</span><span class='lparen'>(</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SELECT id, geometry, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_geojson'>geojson</span><span class='embexpr_end'>}</span><span class='tstring_content'> FROM table</span><span class='tstring_end'>&quot;</span></span>
 <span class='rparen'>)</span>
@@ -386,7 +386,7 @@
 <p>with an <code>ActiveRecord::Base</code></p>
 </div></p>
       
-      <pre class="example code"><code><span class='id identifier rubyid_geojson'>geojson</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../PgSerializer.html" title="PgSerializer (module)">PgSerializer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Utilities.html" title="PgSerializer::Utilities (module)">Utilities</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="PgSerializer::Utilities::SQL (module)">SQL</a></span></span><span class='period'>.</span><span class='id identifier rubyid_geojson_attribute'>geojson_attribute</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+      <pre class="example code"><code><span class='id identifier rubyid_geojson'>geojson</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../DbSerializer.html" title="DbSerializer (module)">DbSerializer</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Utilities.html" title="DbSerializer::Utilities (module)">Utilities</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="DbSerializer::Utilities::SQL (module)">SQL</a></span></span><span class='period'>.</span><span class='id identifier rubyid_geojson_attribute'>geojson_attribute</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_records'>records</span> <span class='op'>=</span> <span class='const'>Model</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span><span class='lparen'>(</span><span class='id identifier rubyid_geojson'>geojson</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_record'>record</span> <span class='op'>=</span> <span class='id identifier rubyid_records'>records</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span>
 
@@ -517,7 +517,7 @@
 121</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/pg_serializer/utilities.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/db_serializer/utilities.rb', line 100</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_geojson_attribute'>geojson_attribute</span><span class='lparen'>(</span><span class='id identifier rubyid_columns'>columns</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span>
@@ -551,7 +551,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat May  9 18:14:20 2020 by
+  Generated on Sat May  9 19:16:39 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.25 (ruby-2.7.0).
 </div>

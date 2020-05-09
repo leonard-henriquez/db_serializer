@@ -5,7 +5,7 @@ class UtilitiesTest < ActiveSupport::TestCase
     assert true
   end
   # test 'geo_json_field' do
-  #   result = PgSerializer::Utilities::SQL.geo_json_field([])
+  #   result = DbSerializer::Utilities::SQL.geo_json_field([])
 
   #   id = 1
   #   lng = 2.34741053183924
@@ -30,7 +30,7 @@ class UtilitiesTest < ActiveSupport::TestCase
   # end
 
   # test 'feature_collection with string' do
-  #   result = PgSerializer::Utilities::SQL.feature_collection("SELECT '{}'::json AS geo_json")
+  #   result = DbSerializer::Utilities::SQL.feature_collection("SELECT '{}'::json AS geo_json")
   #   feature_collection = Utilities::SQL.pick(result, 'json', {})
   #   hash = ActiveSupport::JSON.decode(feature_collection)
 
@@ -46,7 +46,7 @@ class UtilitiesTest < ActiveSupport::TestCase
   #   feature_collection = ''
   #   ActiveRecord::Relation.stub :new, sql do
   #     query = ActiveRecord::Relation.new
-  #     result = PgSerializer::Utilities::SQL.feature_collection(query)
+  #     result = DbSerializer::Utilities::SQL.feature_collection(query)
   #     feature_collection = Utilities::SQL.pick(result, 'json', {})
   #   end
   #   hash = ActiveSupport::JSON.decode(feature_collection)

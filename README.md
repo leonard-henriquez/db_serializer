@@ -1,4 +1,4 @@
-# PG Serializer
+# Db Serializer
 
 This gem provide a blazing fast way to serialize Active Record models.
 At the moment only a GeoJSON serializer is implemented
@@ -8,7 +8,7 @@ At the moment only a GeoJSON serializer is implemented
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'pg_serializer'
+gem 'db_serializer'
 ```
 
 And then execute:
@@ -17,7 +17,7 @@ And then execute:
 $ bundle install
 ```
 
-Then you need to include the concern `PgSerializer::GeoJSON` to your model:
+Then you need to include the concern `DbSerializer::GeoJSON` to your model:
 
 ```ruby
 # In this example the City model has:
@@ -25,11 +25,11 @@ Then you need to include the concern `PgSerializer::GeoJSON` to your model:
 # - an attribute boundaries of type geometry
 class City < ActiveRecord::Base
   # Include this concern
-  include PgSerializer::JSON
+  include DbSerializer::JSON
 
   # Specify which column contains the geometry
   # If you don't specify it, by default it will be :geometry
-  pg_serializer :boundaries
+  db_serializer :boundaries
 end
 ```
 
@@ -59,7 +59,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/leonard-henriquez/pg_serializer. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/leonard-henriquez/pg_serializer/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/leonard-henriquez/db_serializer. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/leonard-henriquez/db_serializer/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
@@ -68,4 +68,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the pg_serializer project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/leonard-henriquez/pg_serializer/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the db_serializer project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/leonard-henriquez/db_serializer/blob/master/CODE_OF_CONDUCT.md).

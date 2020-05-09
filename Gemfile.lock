@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pg_serializer (0.1.0)
+    db_serializer (0.1.0)
       activerecord
       activerecord-postgis-adapter
 
@@ -72,9 +72,9 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-postgis-adapter
+  db_serializer!
   minitest (~> 5.0)
   pg
-  pg_serializer!
   rake (~> 12.0)
   rubocop
   rubocop-rails
